@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlands Coffee - Thay lời muốn nói 20/11</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF4E2; 
+            color: #8c1c23;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1366px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        /* ----- 1. HEADER (64px) ----- */
+        header {
+            height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 800;
+            flex-shrink: 0;
+            padding: 0 40px;
+            background-color: #A61920;
+            color: white;
+            z-index: 10;
+        }
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            letter-spacing: 0.5px;
+        }
+        header a:hover { opacity: 0.8; }
+        .logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        /* ----- 2. HERO (300px) ----- */
+        .hero-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .hero-bg-img {
+            width: 100%;
+            display: block;
+            margin-top: -8%;
+        }
+        .hero-text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-text-overlay .container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .hero-text {
+            width: 42%;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .hero-text h2 {
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin: 0 0 5px 0;
+            color: #A61920;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            margin: 0;
+            line-height: 1.1;
+            color: #A61920;
+        }
+        
+        .hero-text h1 span {
+            font-size: 64px;
+            display: inline-block;
+            margin-top: -5px;
+            font-weight: 700;
+            color: #A61920;
+            position: relative;
+        }
+        
+        .hero-text p {
+            font-size: 15px;
+            line-height: 1.4;
+            margin: 15px 0 0 0;
+            color: #6B3025;
+            font-weight: 600;
+            max-width: 90%;
+        }
+
+        /* Doodles */
+        .doodle-text {
+            position: absolute;
+            top: 30px;
+            right: 18%;
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            color: #A61920;
+            transform: rotate(-10deg);
+            z-index: 10;
+            text-shadow: 1px 2px 5px rgba(255,255,255,0.8);
+        }
+        .doodle-underline {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            stroke: #A61920;
+            stroke-width: 4;
+            fill: none;
+            stroke-linecap: round;
+        }
+        .doodle-heart {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            stroke: #A61920;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .heart-1 { bottom: -35px; left: 10px; transform: rotate(-15deg); }
+        .heart-2 { top: 20px; right: -20px; transform: rotate(15deg); }
+        .doodle-flower-icon {
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            width: 32px;
+            height: 32px;
+            stroke: #A61920;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* ----- 3. LỜI NHẮN (284px) ----- */
+        .message-section {
+            height: 330px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .message-card {
+            background-color: #FFFDF8;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(166, 25, 32, 0.08);
+            padding: 24px 30px;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Audio Side (48%) */
+        .audio-side {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .audio-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 14px;
+            color: #A61920;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .audio-icon {
+            background: #A61920;
+            color: white;
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px;
+        }
+        .audio-quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: 18px;
+            line-height: 1.35;
+            color: #8F151B;
+            margin: 10px 0;
+        }
+        .audio-quote p { margin: 0 0 5px 0; }
+        .audio-signature {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 700;
+            margin-top: 10px;
+            color: #A61920;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .audio-signature-line {
+            width: 40px;
+            height: 2px;
+            background-color: #A61920;
+        }
+
+        .audio-player-wrapper {
+            margin-top: auto;
+        }
+        .audio-player {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid rgba(166, 25, 32, 0.05);
+        }
+        .play-btn {
+            background: #A61920;
+            color: white;
+            border: none;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 8px rgba(166, 25, 32, 0.3);
+        }
+        .play-btn::after {
+            content: '▶';
+            margin-left: 3px;
+            font-size: 14px;
+        }
+        
+        .waveform {
+            flex-grow: 1;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .wave-bar {
+            flex-grow: 1;
+            background-color: #F0A8A8;
+            border-radius: 2px;
+        }
+        
+        .audio-time {
+            font-size: 13px;
+            font-weight: 800;
+            color: #A61920;
+        }
+        .audio-note {
+            font-size: 12px;
+            color: #6B3025;
+            font-weight: 700;
+            margin-top: 6px;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Video Side (52%) */
+        .video-side {
+            width: 52%;
+            height: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            background-color: #2c1a10;
+        }
+        .video-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+        .video-overlay {
+            z-index: 2;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0,0,0,0.1);
+        }
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            border: 3px solid white;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(5px);
+            z-index: 20;
+        }
+        .video-play::after {
+            content: '▶';
+            margin-left: 4px;
+        }
+        .video-text {
+            font-family: 'Dancing Script', cursive;
+            color: white;
+            font-size: 32px;
+            transform: rotate(-8deg);
+            text-shadow: 1px 2px 5px rgba(0,0,0,0.6);
+            margin-left: 100px;
+        }
+        
+        .video-controls {
+            z-index: 3;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            gap: 12px;
+        }
+        .vc-time {
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .vc-progress-bg {
+            flex-grow: 1;
+            height: 3px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+            position: relative;
+        }
+        .vc-progress-fill {
+            position: absolute;
+            left: 0; top: 0;
+            height: 100%;
+            width: 30%;
+            background: white;
+        }
+        .vc-progress-thumb {
+            position: absolute;
+            left: 30%; top: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px; height: 10px;
+            background: white;
+            border-radius: 50%;
+        }
+        .vc-icons {
+            display: flex;
+            gap: 10px;
+            color: white;
+        }
+
+        /* ----- 4. FOOTER (120px) ----- */
+        footer {
+            height: 120px;
+            flex-shrink: 0;
+            background-color: #A61920;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            border-top-left-radius: 50% 20px;
+            border-top-right-radius: 50% 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .footer-content {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            z-index: 2;
+        }
+        footer h3 {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+        }
+        footer h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .footer-icon-left, .footer-icon-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            stroke: rgba(255,255,255,0.4);
+            stroke-width: 1.5;
+            fill: none;
+        }
+        .footer-icon-left { left: 40px; width: 40px; height: 40px; }
+        .footer-icon-right { right: 40px; width: 32px; height: 32px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER (64px) -->
+    <header>
+        <div class="header-left">
+            <img src="logo.jpg" alt="Logo Highlands" class="logo">
+            <a href="#">Thực đơn</a>
+            <a href="#">Về Highlands</a>
+            <a href="#">Nghề nghiệp</a>
+            <a href="#">Hỗ trợ</a>
+        </div>
+        <div class="header-right">
+            <a href="#">Đặt hàng</a>
+            <a href="#">📍 Tìm kiếm cửa hàng</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO (300px) -->
+    <section class="hero-wrapper">
+        <img src="hero-bg.png" class="hero-bg-img" alt="Hero Banner">
+        <div class="hero-text-overlay">
+            <div class="container">
+                <div class="doodle-text">Thay lời muốn nói ♡</div>
+                <div class="hero-text">
+                    <!-- Doodles Trang Trí -->
+                    <svg class="doodle-heart heart-1" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <svg class="doodle-heart heart-2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+
+
+                    <h2>CHÚC MỪNG NGÀY</h2>
+                    <h1>
+                        Nhà giáo Việt Nam
+                        <br>
+                        <span>
+                            20/11
+                            <svg class="doodle-underline" viewBox="0 0 200 20"><path d="M5,10 Q100,20 195,5"></path></svg>
+                        </span>
+                    </h1>
+                    <p>Gửi trọn yêu thương qua những điều nhỏ bé,<br>để những người thầy, người cô luôn cảm thấy được trân trọng! ♡</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. LỜI NHẮN (284px) -->
+    <section class="message-section container">
+        <div class="message-card">
+            <!-- Audio Side (48%) -->
+            <div class="audio-side">
+                <div class="audio-card-header">
+                    <div class="audio-icon">ılı</div>
+                    LỜI NHẮN TỪ NHÓM 1
+                </div>
+                <div class="audio-quote">
+                    <p>“Có những con thuyền chưa bao giờ ngơi nghỉ,</p>
+                    <p>Có người lặng thầm chèo lái qua bao mùa sóng gió,</p>
+                    <p>Để những hành trình phía trước luôn có một ngày mai rực sáng.”</p>
+                    <div class="audio-signature">
+                        <div class="audio-signature-line"></div>
+                        Highlands Coffee – thay Nhóm 1 gửi đến cô
+                    </div>
+                </div>
+                <div class="audio-player-wrapper">
+                    <div class="audio-player">
+                        <button class="play-btn"></button>
+                        <div class="waveform">
+                            <div class="wave-bar" style="height: 40%"></div>
+                            <div class="wave-bar" style="height: 60%"></div>
+                            <div class="wave-bar" style="height: 80%"></div>
+                            <div class="wave-bar" style="height: 100%"></div>
+                            <div class="wave-bar" style="height: 50%"></div>
+                            <div class="wave-bar" style="height: 70%"></div>
+                            <div class="wave-bar" style="height: 30%"></div>
+                            <div class="wave-bar" style="height: 90%"></div>
+                            <div class="wave-bar" style="height: 60%"></div>
+                            <div class="wave-bar" style="height: 40%"></div>
+                            <div class="wave-bar" style="height: 80%"></div>
+                            <div class="wave-bar" style="height: 100%"></div>
+                            <div class="wave-bar" style="height: 50%"></div>
+                            <div class="wave-bar" style="height: 70%"></div>
+                            <div class="wave-bar" style="height: 90%"></div>
+                        </div>
+                        <span class="audio-time">0:32</span>
+                    </div>
+                    <div class="audio-note">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        Giọng nói của nhóm
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Side (52%) -->
+            <div class="video-side" id="video-container">
+                <video id="my-video" src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" poster="hinhhop.jpg" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;"></video>
+                <div class="video-overlay">
+                    <div class="video-text">Happy<br>Teachers' Day<br>♡</div>
+                    <div class="video-play"></div>
+                </div>
+                <div class="video-controls">
+                    <span class="vc-time">0:00 / 0:32</span>
+                    <div class="vc-progress-bg">
+                        <div class="vc-progress-fill"></div>
+                        <div class="vc-progress-thumb"></div>
+                    </div>
+                    <div class="vc-icons">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                        <svg id="fullscreen-btn" style="cursor: pointer;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FOOTER (120px) -->
+    <footer>
+        <div class="footer-content">
+            <svg class="footer-icon-left" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 16v-4"/><path d="M12 8h.01"/><path d="M10 10c-2-2-4-2-4 0s2 4 4 4 2 4 4 4 4-2 4-4-2-4-4-4"/></svg>
+            
+            <h3>Highlands Coffee</h3>
+            <h2>— Thay lời muốn nói —</h2>
+            
+            <svg class="footer-icon-right" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="M6 1v3"/><path d="M10 1v3"/><path d="M14 1v3"/></svg>
+        </div>
+    </footer>
+
+    <script>
+        const video = document.getElementById('my-video');
+        const overlay = document.querySelector('.video-overlay');
+        const playBtn = document.querySelector('.video-play');
+        const fsBtn = document.getElementById('fullscreen-btn');
+        const videoContainer = document.getElementById('video-container');
+        const timeDisplay = document.querySelector('.vc-time');
+        const progressBar = document.querySelector('.vc-progress-fill');
+
+        // Play/Pause logic
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
+            } else {
+                video.pause();
+                overlay.style.opacity = '1';
+                overlay.style.pointerEvents = 'auto';
+            }
+        }
+
+        playBtn.addEventListener('click', togglePlay);
+        video.addEventListener('click', togglePlay);
+
+        // Update progress bar and time
+        function formatTime(seconds) {
+            const m = Math.floor(seconds / 60);
+            const s = Math.floor(seconds % 60);
+            return m + ':' + (s < 10 ? '0' : '') + s;
+        }
+
+        video.addEventListener('timeupdate', () => {
+            if (video.duration) {
+                const percent = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = percent + '%';
+                timeDisplay.textContent = formatTime(video.currentTime) + ' / ' + formatTime(video.duration);
+            }
+        });
+
+        // Fullscreen toggle logic
+        fsBtn.addEventListener('click', function() {
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (videoContainer.requestFullscreen) {
+                    videoContainer.requestFullscreen();
+                } else if (videoContainer.webkitRequestFullscreen) { /* Safari */
+                    videoContainer.webkitRequestFullscreen();
+                } else if (videoContainer.msRequestFullscreen) { /* IE11 */
+                    videoContainer.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
